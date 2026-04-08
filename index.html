@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pernikahan — Timotius & Mentari</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@200;300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     HALAMAN COVER
+══════════════════════════════════════════ -->
+<section id="cover">
+  <img class="cover-img"
+       src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80"
+       alt="Pre-wedding photo cover"
+       onerror="this.src='https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=1400&q=80'">
+  <div class="cover-overlay"></div>
+  <div class="cover-content">
+    <p class="cover-label">Wedding Invitation</p>
+    <div class="cover-names">
+      Timotius <span class="cover-ampersand">&</span> Veronica
+    </div>
+    <p class="cover-date-tag">Sabtu, 14 Juni 2027</p>
+    <a href="#invitation" class="btn-open" onclick="scrollToInvitation(event)">
+      <span>Buka Undangan</span>
+      <i class="bi bi-chevron-down arrow-down"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     MAIN INVITATION
+══════════════════════════════════════════ -->
+<div id="invitation">
+
+  <!-- ── SECTION 1: Pasangan & tanggal ── -->
+  <section id="sec1">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5 d-flex justify-content-center reveal">
+          <div class="couple-photo-wrap">
+            <img src="assets/2.jpeg"
+                 alt="Foto pre-wedding pasangan"
+                 onerror="this.src='https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=700&q=80'">
+            <div class="couple-photo-frame"></div>
+            <div class="couple-photo-corner corner-tl"></div>
+            <div class="couple-photo-corner corner-tr"></div>
+            <div class="couple-photo-corner corner-bl"></div>
+            <div class="couple-photo-corner corner-br"></div>
+          </div>
+        </div>
+        <div class="col-lg-7 couple-info reveal reveal-delay-1">
+          <p class="section-label">Kami Akan Menikah</p>
+          <div class="ornament"><div class="ornament-diamond"></div></div>
+          <h1>
+            Timotius<br>Ferdinand Wijayanta
+            <br><span class="amp">&</span><br>
+            Veronica<br>Mentari Wijayanti
+          </h1>
+          <div class="gold-line"></div>
+          <p class="wedding-date-big">Sabtu, 14 Juni 2027</p>
+          <p style="font-size:12px;letter-spacing:2px;color:var(--muted);margin-top:8px;">
+            Gereja Katolik Paroki St. Antonius Padua, Muntilan
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 2: Countdown + Undangan ── -->
+  <section id="sec2">
+    <div class="container">
+      <div class="text-center reveal">
+        <p class="section-label" style="color:rgba(255,255,255,0.4);">Menghitung Hari</p>
+        <div class="ornament">
+          <div class="ornament-diamond" style="background:var(--gold);"></div>
+        </div>
+        <h2 class="section-heading text-gold">Hari Bahagia Kami</h2>
+      </div>
+
+      <!-- <div class="countdown-wrap reveal reveal-delay-1" id="countdown">
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-label">Hari</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-label">Jam</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-mins">00</span>
+          <span class="countdown-label">Menit</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-secs">00</span>
+          <span class="countdown-label">Detik</span>
+        </div>
+      </div> -->
+
+      <div class="countdown-wrap reveal reveal-delay-1" id="countdown">
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-label">Hari</span>
+        </div>
+
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-label">Jam</span>
+        </div>
+
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-mins">00</span>
+          <span class="countdown-label">Menit</span>
+        </div>
+
+        <div class="countdown-box">
+          <span class="countdown-num" id="cd-secs">00</span>
+          <span class="countdown-label">Detik</span>
+        </div>
+
+      </div>
+
+      <!-- Trio photos -->
+      <div class="trio-photos reveal reveal-delay-1">
+        <img src="assets/3.jpeg"
+             alt="Pre-wedding 1" onerror="this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=75'">
+        <img src="assets/4.jpeg"
+             alt="Pre-wedding 2" onerror="this.src='https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=400&q=75'">
+        <img src="assets/5.jpeg"
+             alt="Pre-wedding 3" onerror="this.src='https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=400&q=75'">
+      </div>
+
+      <!-- Undangan teks -->
+      <div class="invite-text reveal">
+        <h2>Bride &amp; Groom</h2>
+        <p>
+          Tanpa mengurangi rasa hormat, kami bermaksud mengundang<br>
+          Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami :
+        </p>
+      </div>
+
+      <!-- Couple cards -->
+      <div class="couple-cards reveal reveal-delay-1">
+        <div class="couple-card">
+          <img src="assets/timotius_ferdinand_photo.jpg"
+               alt="Rizky" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80'">
+          <div class="name">Timotius</div>
+          <div class="fullname">Ferdinand Wijayanta</div>
+          <div class="ig"><i class="bi bi-instagram"></i>@ferdtheman</div>
+        </div>
+        <div class="couple-card">
+          <img src="assets/ayang.jpg"
+               alt="Clarissa" onerror="this.src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80'">
+          <div class="name">Veronica</div>
+          <div class="fullname">Mentari Wijayanta</div>
+          <div class="ig"><i class="bi bi-instagram"></i>@clarissa.angel</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 3: Ayat + Carousel + Event ── -->
+  <section id="sec3">
+    <div class="container">
+      <div class="text-center reveal" style="margin-bottom:60px;">
+        <p class="section-label">Firman Tuhan</p>
+        <div class="ornament"><div class="ornament-diamond"></div></div>
+      </div>
+
+      <!-- Bible verse -->
+      <div class="verse-wrap reveal">
+        <p class="verse-text">
+          "Karena itu, apa yang telah dipersatukan Allah, janganlah diceraikan manusia."
+        </p>
+        <p class="verse-ref">Matius 19 : 6</p>
+      </div>
+
+      <!-- Mini carousel -->
+      <div class="mini-carousel reveal">
+        <div class="mini-carousel-inner" id="miniCarousel">
+          <div class="mini-carousel-item">
+            <img src="assets/6.jpeg"
+                 alt="pw1" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=300&q=75'">
+          </div>
+          <div class="mini-carousel-item">
+            <img src="assets/7.jpeg"
+                 alt="pw2" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=300&q=75'">
+          </div>
+          <div class="mini-carousel-item">
+            <img src="assets/8.jpeg"
+                 alt="pw3" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=300&q=75'">
+          </div>
+          <div class="mini-carousel-item">
+            <img src="assets/6.jpeg"
+                 alt="pw4" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=300&q=75'">
+          </div>
+          <div class="mini-carousel-item">
+            <img src="assets/6.jpeg"
+                 alt="pw5" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=300&q=75'">
+          </div>
+        </div>
+        <div class="mini-carousel-controls">
+          <button class="mini-carousel-btn" id="mcPrev"><i class="bi bi-arrow-left"></i></button>
+          <span style="font-size:10px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;">Galeri</span>
+          <button class="mini-carousel-btn" id="mcNext"><i class="bi bi-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Event card -->
+      <div class="event-card reveal">
+        <p class="section-label" style="margin-bottom:8px;">Acara Pernikahan</p>
+        <div class="ornament"><div class="ornament-diamond"></div></div>
+        <p class="event-title">Misa Pemberkatan Pernikahan</p>
+
+        <div class="event-detail">
+          <i class="bi bi-calendar3 event-icon"></i>
+          <div class="event-detail-text">
+            Tanggal
+            <span class="event-detail-val">Sabtu, 14 Juni 2027</span>
+          </div>
+        </div>
+
+        <div class="event-detail">
+          <i class="bi bi-clock event-icon"></i>
+          <div class="event-detail-text">
+            Waktu
+            <span class="event-detail-val">09.00 WIB — Selesai</span>
+          </div>
+        </div>
+
+        <div class="event-detail">
+          <i class="bi bi-geo-alt event-icon"></i>
+          <div class="event-detail-text">
+            Lokasi
+            <span class="event-detail-val">Gereja Katolik Paroki St. Antonius Padua<br>Jl. Kartini, Balemulyo, Muntilan, Kec. Muntilan, Kabupaten Magelang, Jawa Tengah</span>
+          </div>
+        </div>
+
+        <div style="margin-top:24px;">
+          <!-- https://www.google.com/maps/place/Gereja+Katolik+Paroki+St.+Antonius+Padua,+Muntilan -->
+          <a href="https://maps.google.com/?q=Gereja+Katolik+Paroki+St.+Antonius+Padua,+Muntilan"
+             target="_blank"
+             style="display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);color:var(--gold);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:10px 24px;text-decoration:none;transition:all 0.3s;"
+             onmouseover="this.style.background='var(--gold)';this.style.color='#fff'"
+             onmouseout="this.style.background='transparent';this.style.color='var(--gold)'">
+            <i class="bi bi-map"></i> Lihat Peta
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: Gallery ── -->
+  <section id="sec4">
+    <div class="container">
+      <div class="text-center reveal">
+        <p class="section-label">Kenangan Kami</p>
+        <div class="ornament"><div class="ornament-diamond"></div></div>
+        <h2 class="section-heading">Wedding Gallery</h2>
+      </div>
+
+      <div class="gallery-grid reveal">
+        <!-- Row 1 -->
+        <div class="gallery-item r2" onclick="openLightbox(this)">
+          <img src="assets/9.jpeg" alt="g1">
+        </div>
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img src="assets/10.jpeg" alt="g2">
+        </div>
+        <div class="gallery-item wide" onclick="openLightbox(this)">
+          <img src="assets/11.jpeg" alt="g3">
+        </div>
+        <!-- Row 2 cont -->
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img src="assets/12.jpeg" alt="g4">
+        </div>
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img src="assets/13.jpeg" alt="g5">
+        </div>
+        <!-- Row 3 -->
+        <div class="gallery-item wide" onclick="openLightbox(this)">
+          <img src="assets/1.jpeg" alt="g6">
+        </div>
+        <div class="gallery-item r2" onclick="openLightbox(this)">
+          <img src="assets/2.jpeg" alt="g7">
+        </div>
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img src="assets/3.jpeg" alt="g8">
+        </div>
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img src="assets/4.jpeg" alt="g9">
+        </div>
+        <!-- Row 4 -->
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img src="assets/5.jpeg" alt="g10">
+        </div>
+        <div class="gallery-item wide" onclick="openLightbox(this)">
+          <img src="assets/6.jpeg" alt="g11">
+        </div>
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img src="assets/7.jpeg" alt="g12">
+        </div>
+        <!-- Row 5 -->
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img src="assets/8.jpeg" alt="g13">
+        </div>
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img src="assets/9.jpeg" alt="g14">
+        </div>
+        <div class="gallery-item wide" onclick="openLightbox(this)">
+          <img src="assets/10.jpeg" alt="g15">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5: Wedding Gift ── -->
+  <section id="sec5">
+    <div class="container">
+      <div class="text-center reveal">
+        <p class="section-label" style="color:rgba(255,255,255,0.4);">Hadiah</p>
+        <div class="ornament"><div class="ornament-diamond" style="background:var(--gold);"></div></div>
+        <h2 class="section-heading text-gold">Wedding Gift</h2>
+      </div>
+
+      <p class="gift-text reveal reveal-delay-1">
+        Doa Restu Anda merupakan karunia yang sangat berarti bagi kami.
+        Namun jika memberi adalah ungkapan tanda kasih Anda,
+        Anda dapat memberi gift melalui:
+      </p>
+
+      <div class="text-center reveal reveal-delay-2">
+        <button class="btn-gift" onclick="toggleGiftModal()">
+          <i class="bi bi-gift"></i>
+          <span>Kirim Gift</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+   <!-- SECTION 8: Weeding Whises -->
+  <section id="sec7">
+    <div class="container">
+      <div class="text-center reveal">
+        <p class="section-label text-gold">Doa & Harapan</p>
+        <div class="ornament"><div class="ornament-diamond" style="background:var(--gold);"></div></div>
+        <h2 class="section-heading text-gold">Wedding Whises</h2>
+      </div>
+
+      <!-- <div class="text-center reveal">
+        <p class="section-label">Doa & Harapan</p>
+        <div class="ornament"><div class="ornament-diamond"></div></div>
+        <h2 class="section-heading text-black">Wedding Whises</h2>
+      </div> -->
+
+      <form>
+        <!-- Nama -->
+        <div class="mb-3 reveal reveal-delay-2">
+          <label for="nama" class="form-label"></label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="nama" 
+            placeholder="Masukkan nama"
+            required
+          >
+        </div>
+
+        <!-- Wishes -->
+        <div class="mb-3 reveal reveal-delay-2">
+          <label for="wishes" class="form-label"></label>
+          <textarea 
+            class="form-control" 
+            id="wishes" 
+            rows="3" 
+            maxlength="300"
+            placeholder="Tulis ucapan (max 300 karakter)"
+            required
+          ></textarea>
+          <div class="mt-2 d-flex justify-content-start">
+            <small class="text-muted">Max 300 karakter</small>
+          </div>
+        </div>
+
+        <div class="text-center reveal reveal-delay-2">
+          <button class="mt-3 btn-gift" onclick="toggleSendWishes()">
+            <i class="bi bi-chat"></i>
+            <span>Kirim Whises</span>
+          </button>
+        </div>      
+      </form>
+    </div>
+  </section>
+
+
+  <!-- SECTION 9: Weeding Whises List Message -->
+  <section id="sec8">
+    <div class="wishes-container">
+      <div class="wishes-list" id="wishesList">
+        <div class="wish-item">
+          <div class="avatar">K</div>
+          <div class="content">
+            <h4>Kezia Putri Patricia</h4>
+            <p>Happy Wedding cec kuu sayang dan hia welly...</p>
+            <span>9 months ago</span>
+          </div>
+        </div>
+
+        <div class="wish-item">
+          <div class="avatar">N</div>
+          <div class="content">
+            <h4>Nanda</h4>
+            <p>Happy Wedding ya Jen bahagia selalu...</p>
+            <span>9 months ago</span>
+          </div>
+        </div>
+
+        <div class="wish-item">
+          <div class="avatar">N</div>
+          <div class="content">
+            <h4>Nanda</h4>
+            <p>Happy Wedding ya Jen bahagia selalu...</p>
+            <span>9 months ago</span>
+          </div>
+        </div>
+
+        <div class="wish-item">
+          <div class="avatar">N</div>
+          <div class="content">
+            <h4>Nanda</h4>
+            <p>Happy Wedding ya Jen bahagia selalu...</p>
+            <span>9 months ago</span>
+          </div>
+        </div>
+
+        <div class="wish-item">
+          <div class="avatar">N</div>
+          <div class="content">
+            <h4>Nanda</h4>
+            <p>Happy Wedding ya Jen bahagia selalu...</p>
+            <span>9 months ago</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6: Thank You ── -->
+  <section id="sec6">
+    <div class="thankyou-slides" id="tySlides">
+      <div class="thankyou-slide active"
+           style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80')"></div>
+      <div class="thankyou-slide"
+           style="background-image:url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=80')"></div>
+      <div class="thankyou-slide"
+           style="background-image:url('assets/11.jpeg')"></div>
+      <div class="thankyou-slide"
+           style="background-image:url('https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1200&q=80')"></div>
+    </div>
+    <div class="thankyou-content">
+      <div class="ornament">
+        <div class="ornament-diamond" style="background:#fff;opacity:0.6;"></div>
+      </div>
+      <h2>Thank You</h2>
+      <p>Kami sangat berbahagia atas kehadiran & doa restu Anda</p>
+      <div style="margin-top:24px;">
+        <p style="font-family:'Great Vibes',cursive;font-size: 45px;color:var(--gold-light);line-height: 1.15;">
+          Timotius <span class="amp">&amp;</span> Veronica
+        </p>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ── SECTION 7: Footer ── -->
+  <footer id="footer">
+    <p>
+      &copy; 2027 &nbsp;<span>Timotius &amp; Veronica</span>&nbsp; · Sabtu, 14 Juni 2027 · Muntilan
+    </p>
+    <p style="margin-top:8px;font-size:9px;opacity:0.5;letter-spacing:1px;">
+      Made with <span style="color:#e05;">♥</span> — All rights reserved
+    </p>
+  </footer>
+
+</div><!-- end #invitation -->
+
+<!-- ── Gift Modal ── -->
+<div class="gift-modal-bg" id="giftModalBg" onclick="closeGiftOnBg(event)">
+  <div class="gift-modal">
+    <button class="gift-modal-close" onclick="toggleGiftModal()"><i class="bi bi-x-lg"></i></button>
+    <p style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Wedding Gift</p>
+    <div class="ornament"><div class="ornament-diamond" style="background:var(--gold);"></div></div>
+    <p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:24px;">
+      Terima kasih atas kasih sayang Anda 🤍
+    </p>
+
+    <div class="rek-card">
+      <p class="rek-bank">BCA</p>
+      <p class="rek-num">1234 5678 90</p>
+      <p class="rek-name">Timotius Ferdinand Wijayanta</p>
+      <button class="btn-copy" onclick="copyRek('1234567890', this)">
+        <i class="bi bi-clipboard"></i> Salin Nomor
+      </button>
+    </div>
+
+    <div class="rek-card">
+      <p class="rek-bank">Mandiri</p>
+      <p class="rek-num">0987 6543 2100</p>
+      <p class="rek-name">Veronica Mentari Wijayanta</p>
+      <button class="btn-copy" onclick="copyRek('0987654321', this)">
+        <i class="bi bi-clipboard"></i> Salin Nomor
+      </button>
+    </div>
+
+    <div class="contact-person">
+      <p class="contact-label">Contact Person</p>
+      <div class="contact-item">
+        <i class="bi bi-telephone" style="color:var(--gold);font-size:14px;"></i>
+        <span>Timotius — 081246843543</span>
+      </div>
+      <div class="contact-item">
+        <i class="bi bi-telephone" style="color:var(--gold);font-size:14px;"></i>
+        <span>Mentari  — 081246843543</span>
+      </div>
+      <div class="contact-item">
+        <i class="bi bi-whatsapp" style="color:var(--gold);font-size:14px;"></i>
+        <a href="https://wa.me/6281246843543"
+           target="_blank"
+           style="color:rgba(255,255,255,0.6);text-decoration:none;">
+          Chat via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Lightbox ── -->
+<div id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()"><i class="bi bi-x-lg"></i></button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ── Scroll lock ──
+// Kunci semua metode scroll sebelum tombol diklik
+let scrollUnlocked = false;
+
+let isOpening = false;
+
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+window.onload = function () {
+  window.scrollTo(0, 0);
+};
+
+function blockScroll(e) {
+  if (!scrollUnlocked) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }
+}
+
+// Block wheel, touch, keyboard scroll
+
+// window.addEventListener('wheel',      blockScroll, { passive: false });
+// window.addEventListener('touchmove',  blockScroll, { passive: false });
+// window.addEventListener('keydown', function(e) {
+//   if (!scrollUnlocked) {
+//     const scrollKeys = [' ','PageUp','PageDown','End','Home','ArrowUp','ArrowDown'];
+//     if (scrollKeys.includes(e.key)) { e.preventDefault(); return false; }
+//   }
+// });
+
+window.addEventListener('scroll', function () {
+  // if (isRelocking) return;
+
+  // if (window.scrollY <= 10 && scrollUnlocked) {
+  //   isRelocking = true;
+  //   scrollUnlocked = false;
+  //   document.body.classList.remove('unlocked');
+  //   document.querySelector('.overlay').style.display = 'flex';
+
+  //   window.scrollTo({ top: 0, behavior: 'auto' });
+
+  //   setTimeout(() => {
+  //     isRelocking = false;
+  //   }, 100);
+  // }
+
+  if (isOpening) return;
+  if (window.scrollY <= 10 && scrollUnlocked) {
+    scrollUnlocked = false;
+
+    document.body.classList.remove('unlocked');
+
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+});
+
+
+// Smooth scroll to invitation + unlock
+function scrollToInvitation(e) {
+  e.preventDefault();
+  const cover = document.getElementById('cover');
+  // animasi fade out
+  cover.style.transition = 'opacity 0.6s ease';
+  cover.style.opacity = '0';
+  setTimeout(() => {
+    cover.remove(); //hapus total dari DOM
+  }, 600);
+
+  scrollUnlocked = true;
+  isOpening = true;
+
+  document.body.classList.add('unlocked');
+}
+
+// -----------------  INI KALO GAK ILANGIN BAGIAN COVER! ------------
+// function scrollToInvitation(e) {
+//   e.preventDefault();
+//   scrollUnlocked = true;
+//   document.body.classList.add('unlocked');
+//   // document.querySelector('.overlay').style.display = 'none';
+
+//   document.getElementById('invitation').scrollIntoView({ behavior: 'smooth' });
+// }
+
+// Countdown
+(function startCountdown() {
+  const target = new Date('2027-06-14T09:00:00+07:00');
+
+  function tick() {
+    const now = new Date();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+
+    const days  = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins  = Math.floor((diff % 3600000)  / 60000);
+    const secs  = Math.floor((diff % 60000)    / 1000);
+
+    document.getElementById('cd-days').textContent  = String(days).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+
+// Mini carousel
+(function() {
+  let idx = 0;
+  const inner = document.getElementById('miniCarousel');
+  const items = inner.querySelectorAll('.mini-carousel-item');
+  const total = items.length;
+  const visible = 3;
+
+  function goTo(n) {
+    idx = ((n % (total - visible + 1)) + (total - visible + 1)) % (total - visible + 1);
+    inner.style.transform = `translateX(-${idx * (100 / visible)}%)`;
+  }
+
+  document.getElementById('mcNext').addEventListener('click', () => goTo(idx + 1));
+  document.getElementById('mcPrev').addEventListener('click', () => goTo(idx - 1));
+
+  setInterval(() => goTo(idx + 1), 3500);
+})();
+
+// Thank you slideshow
+(function() {
+  const slides = document.querySelectorAll('.thankyou-slide');
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
+})();
+
+// Reveal on scroll
+(function() {
+  const els = document.querySelectorAll('.reveal');
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  els.forEach(el => obs.observe(el));
+})();
+
+// Gift modal
+function toggleGiftModal() {
+  document.getElementById('giftModalBg').classList.toggle('active');
+}
+
+function closeGiftOnBg(e) {
+  if (e.target === document.getElementById('giftModalBg')) toggleGiftModal();
+}
+
+// Copy rekening
+function copyRek(num, btn) {
+  navigator.clipboard.writeText(num).then(() => {
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<i class="bi bi-check-lg"></i> Disalin!';
+    setTimeout(() => { btn.innerHTML = orig; }, 2000);
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = num;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<i class="bi bi-check-lg"></i> Disalin!';
+    setTimeout(() => { btn.innerHTML = orig; }, 2000);
+  });
+}
+
+// Lightbox
+function openLightbox(el) {
+  const src = el.querySelector('img').src;
+  document.getElementById('lbImg').src = src;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  if (scrollUnlocked) document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeLightbox();
+    document.getElementById('giftModalBg').classList.remove('active');
+  }
+});
+</script>
+</body>
+</html>
