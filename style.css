@@ -184,7 +184,7 @@ body.unlocked {
     display: flex;
     align-items: center;
     padding: 80px 20px;
-    background: var(--white);
+    background: var(--dark);
 }
 
 .couple-photo-wrap {
