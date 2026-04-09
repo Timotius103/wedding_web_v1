@@ -40,7 +40,7 @@ body.unlocked {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-bottom: 60px;
+    /* padding-bottom: 60px; */
 }
 
 #cover .cover-img {
@@ -79,7 +79,7 @@ body.unlocked {
 
 .cover-names {
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(52px, 10vw, 96px);
+    font-size: clamp(50px, 10vw, 96px);
     color: #fff;
     line-height: 1.1;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
