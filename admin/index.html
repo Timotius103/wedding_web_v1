@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main class="admin-shell">
+    <section id="loginView" class="panel login-panel">
+      <p class="eyebrow">Private dashboard</p>
+      <h1>Wedding Admin</h1>
+      <p class="muted">Masuk untuk memoderasi ucapan tamu.</p>
+      <form id="loginForm">
+        <label>Email<input id="emailInput" type="email" autocomplete="username" required></label>
+        <label>Password<input id="passwordInput" type="password" autocomplete="current-password" required></label>
+        <button type="submit">Masuk</button>
+        <p id="loginStatus" class="status" role="alert"></p>
+      </form>
+    </section>
+    <section id="dashboardView" hidden>
+      <header class="dashboard-header">
+        <div><p class="eyebrow">Moderation</p><h1>Wedding Admin</h1></div>
+        <button id="logoutButton" class="secondary" type="button">Keluar</button>
+      </header>
+      <div id="dashboardStatus" class="status" role="status" aria-live="polite"></div>
+      <div class="counts" id="counts"></div>
+      <nav class="tabs" aria-label="Status komentar">
+        <button class="tab active" type="button" data-status="pending">Pending</button>
+        <button class="tab" type="button" data-status="approved">Approved</button>
+        <button class="tab" type="button" data-status="rejected">Rejected</button>
+      </nav>
+      <section id="commentsList" class="comments-list" aria-live="polite"></section>
+    </section>
+  </main>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

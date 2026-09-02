@@ -1,0 +1,5 @@
+id,name,category,maxGuests
+budi-santoso,Bapak Budi Santoso,family,2
+andi-wijaya,Andi Wijaya,friend,1
+keluarga-wijaya,Keluarga Wijaya,family,4
+special-chars,"Bapak & Ibu <Santoso> ""O'Connor""",test,2

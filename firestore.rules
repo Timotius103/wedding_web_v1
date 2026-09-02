@@ -1,0 +1,43 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.uid == "n8nlyecJeKRJVL3nv8PRulYlvfx2";
+    }
+
+    function validGuestId() {
+      return request.resource.data.guestId == null
+        || (request.resource.data.guestId is string
+          && request.resource.data.guestId.size() <= 120);
+    }
+
+    function validCommentCreate() {
+      return request.resource.data.keys().hasAll([
+          'guestId', 'name', 'message', 'status', 'createdAt'
+        ])
+        && request.resource.data.keys().hasOnly([
+          'guestId', 'name', 'message', 'status', 'createdAt'
+        ])
+        && validGuestId()
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 80
+        && request.resource.data.message is string
+        && request.resource.data.message.size() > 0
+        && request.resource.data.message.size() <= 300
+        && request.resource.data.status == 'pending'
+        && request.resource.data.createdAt == request.time;
+    }
+
+    match /comment/{commentId} {
+      allow read: if isAdmin() || resource.data.status == 'approved';
+      allow create: if validCommentCreate();
+      allow update: if isAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status'])
+        && request.resource.data.status in ['pending', 'approved', 'rejected'];
+      allow delete: if isAdmin();
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "guests": {
+    "budi-santoso": {
+      "id": "budi-santoso",
+      "name": "Bapak Budi Santoso",
+      "category": "family",
+      "maxGuests": 2
+    },
+    "andi-wijaya": {
+      "id": "andi-wijaya",
+      "name": "Andi Wijaya",
+      "category": "friend",
+      "maxGuests": 1
+    },
+    "keluarga-wijaya": {
+      "id": "keluarga-wijaya",
+      "name": "Keluarga Wijaya",
+      "category": "family",
+      "maxGuests": 4
+    },
+    "special-chars": {
+      "id": "special-chars",
+      "name": "Bapak & Ibu <Santoso> \"O'Connor\"",
+      "category": "test",
+      "maxGuests": 2
+    }
+  }
+}
