@@ -24,6 +24,94 @@ body {
     overflow: hidden;
 }
 
+.music-control {
+    position: fixed;
+    right: calc(20px + env(safe-area-inset-right, 0px));
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: calc(100vw - 40px);
+}
+
+.music-toggle {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--gold-light);
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%, #514532, var(--dark) 75%);
+    color: var(--gold-light);
+    box-shadow: 0 6px 20px rgba(44, 37, 24, 0.3), inset 0 0 0 4px rgba(232, 213, 176, 0.1);
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.music-toggle i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-toggle .bi-play-fill {
+    transform: translateX(1px);
+}
+
+.music-toggle::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border: 1px solid var(--gold);
+    border-radius: inherit;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.music-toggle.is-playing::after {
+    opacity: 0.6;
+}
+
+.music-toggle:hover,
+.music-toggle.is-playing {
+    background: var(--gold);
+    color: var(--dark);
+}
+
+.music-toggle:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+}
+
+.music-status {
+    margin: 0;
+    max-width: 240px;
+    padding: 10px 14px;
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--dark);
+    font-size: 13px;
+}
+
+@media (max-width: 480px) {
+    .music-control {
+        right: calc(14px + env(safe-area-inset-right, 0px));
+        bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .music-toggle {
+        width: 48px;
+        height: 48px;
+    }
+}
+
 body.unlocked {
     overflow-x: hidden;
     overflow-y: auto;
@@ -1006,14 +1094,28 @@ body.unlocked {
 }
 
 .avatar {
-    width: 35px;
-    height: 35px;
-    background: #ddd;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    background: var(--gold-light);
+    color: var(--dark);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.wish-item .content {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.wish-item .content p {
+    line-height: 1.6;
 }
 
 .content h4 {

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Undangan Pernikahan — Timotius & Mentari</title>
+<title data-invitation="pageTitle">Undangan Pernikahan</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@200;300;400&family=Great+Vibes&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
@@ -15,10 +15,10 @@
      HALAMAN COVER
 ══════════════════════════════════════════ -->
 <section id="cover">
-  <img class="cover-img"
+  <img data-photo="cover" class="cover-img"
        src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1600&q=80"
        alt="Pre-wedding photo cover"
-       onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1600&q=80'">
+       onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1600&q=80'">
   <div class="cover-overlay"></div>
   <div class="cover-content">
     <p class="cover-label">Wedding Invitation</p>
@@ -27,9 +27,9 @@
       <p id="guestName">Bapak/Ibu/Saudara/i</p>
     </div>
     <div class="cover-names">
-      Timotius <span class="cover-ampersand">&</span> Veronica
+      <span data-invitation="groom.name"></span> <span class="cover-ampersand">&</span> <span data-invitation="bride.name"></span>
     </div>
-    <p class="cover-date-tag">Sabtu, 14 Juni 2027</p>
+    <p class="cover-date-tag"><span data-invitation="date"></span></p>
     <a href="#invitation" class="btn-open" onclick="scrollToInvitation(event)">
       <span>Buka Undangan</span>
       <i class="bi bi-chevron-down arrow-down"></i>
@@ -48,9 +48,9 @@
       <div class="row align-items-center g-5">
         <div class="col-lg-5 d-flex justify-content-center reveal">
           <div class="couple-photo-wrap">
-            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80"
+            <img data-photo="couple" src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80"
                  alt="Foto pre-wedding pasangan"
-                 onerror="this.src='https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=80'">
+                 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=80'">
             <div class="couple-photo-frame"></div>
             <div class="couple-photo-corner corner-tl"></div>
             <div class="couple-photo-corner corner-tr"></div>
@@ -62,14 +62,14 @@
           <p class="section-label">Kami Akan Menikah</p>
           <div class="ornament"><div class="ornament-diamond"></div></div>
           <h1 style="color:var(--gold);">
-            Timotius<br>Ferdinand Wijayanta
+            <span data-invitation="groom.name"></span><br><span data-invitation="groom.surname"></span>
             <br><span class="amp">&</span><br>
-            Veronica<br>Mentari Wijayanti
+            <span data-invitation="bride.name"></span><br><span data-invitation="bride.surname"></span>
           </h1>
           <div class="gold-line"></div>
-          <p class="wedding-date-big">Sabtu, 14 Juni 2027</p>
+          <p class="wedding-date-big"><span data-invitation="date"></span></p>
           <p style="font-size:12px;letter-spacing:2px;color:var(--muted);margin-top:8px;">
-            Gereja Katolik Paroki St. Antonius Padua, Muntilan
+            <span data-invitation="event.venue"></span>
           </p>
         </div>
       </div>
@@ -134,12 +134,12 @@
 
       <!-- Trio photos -->
       <div class="trio-photos reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=500&q=75"
-             alt="Pre-wedding 1" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=500&q=75'">
-        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=75"
-             alt="Pre-wedding 2" onerror="this.src='https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=500&q=75'">
-        <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=500&q=75"
-             alt="Pre-wedding 3" onerror="this.src='https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=500&q=75'">
+        <img data-photo="trio.0" src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=500&q=75"
+             alt="Pre-wedding 1" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=500&q=75'">
+        <img data-photo="trio.1" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=75"
+             alt="Pre-wedding 2" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=500&q=75'">
+        <img data-photo="trio.2" src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=500&q=75"
+             alt="Pre-wedding 3" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=500&q=75'">
       </div>
 
       <!-- Undangan teks -->
@@ -154,18 +154,18 @@
       <!-- Couple cards -->
       <div class="couple-cards reveal reveal-delay-1">
         <div class="couple-card">
-          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80"
-               alt="Timotius" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80'">
-          <div class="name">Timotius</div>
-          <div class="fullname">Ferdinand Wijayanta</div>
-          <div class="ig"><i class="bi bi-instagram"></i>@ferdtheman</div>
+          <img data-photo="groom" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80"
+               alt="Foto mempelai" data-invitation-alt="groom.name" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80'">
+          <div class="name" data-invitation="groom.name"></div>
+          <div class="fullname" data-invitation="groom.surname"></div>
+          <div class="ig"><i class="bi bi-instagram"></i><span data-invitation="groom.instagramLabel"></span></div>
         </div>
         <div class="couple-card">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80"
-               alt="Veronica" onerror="this.src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=500&q=80'">
-          <div class="name">Veronica</div>
-          <div class="fullname">Mentari Wijayanta</div>
-          <div class="ig"><i class="bi bi-instagram"></i>@clarissa.angel</div>
+          <img data-photo="bride" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80"
+               alt="Foto mempelai" data-invitation-alt="bride.name" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=500&q=80'">
+          <div class="name" data-invitation="bride.name"></div>
+          <div class="fullname" data-invitation="bride.surname"></div>
+          <div class="ig"><i class="bi bi-instagram"></i><span data-invitation="bride.instagramLabel"></span></div>
         </div>
       </div>
     </div>
@@ -191,24 +191,24 @@
       <div class="mini-carousel reveal">
         <div class="mini-carousel-inner" id="miniCarousel">
           <div class="mini-carousel-item">
-            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=700&q=75"
-                 alt="pw1" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=700&q=75'">
+            <img data-photo="carousel.0" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=700&q=75"
+                 alt="pw1" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=700&q=75'">
           </div>
           <div class="mini-carousel-item">
-            <img src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=700&q=75"
-                 alt="pw2" onerror="this.src='https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=700&q=75'">
+            <img data-photo="carousel.1" src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=700&q=75"
+                 alt="pw2" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=700&q=75'">
           </div>
           <div class="mini-carousel-item">
-            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=700&q=75"
-                 alt="pw3" onerror="this.src='https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=700&q=75'">
+            <img data-photo="carousel.2" src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=700&q=75"
+                 alt="pw3" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=700&q=75'">
           </div>
           <div class="mini-carousel-item">
-            <img src="https://images.unsplash.com/photo-1520853504280-249b72dc947c?auto=format&fit=crop&w=700&q=75"
-                 alt="pw4" onerror="this.src='https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=700&q=75'">
+            <img data-photo="carousel.3" src="https://images.unsplash.com/photo-1520853504280-249b72dc947c?auto=format&fit=crop&w=700&q=75"
+                 alt="pw4" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=700&q=75'">
           </div>
           <div class="mini-carousel-item">
-            <img src="https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?auto=format&fit=crop&w=700&q=75"
-                 alt="pw5" onerror="this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=75'">
+            <img data-photo="carousel.4" src="https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?auto=format&fit=crop&w=700&q=75"
+                 alt="pw5" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=75'">
           </div>
         </div>
         <div class="mini-carousel-controls">
@@ -222,13 +222,13 @@
       <div class="event-card reveal">
         <p class="section-label" style="margin-bottom:8px;">Acara Pernikahan</p>
         <div class="ornament"><div class="ornament-diamond"></div></div>
-        <p class="event-title">Misa Pemberkatan Pernikahan</p>
+        <p class="event-title"><span data-invitation="event.title"></span></p>
 
         <div class="event-detail">
           <i class="bi bi-calendar3 event-icon"></i>
           <div class="event-detail-text">
             Tanggal
-            <span class="event-detail-val">Sabtu, 14 Juni 2027</span>
+            <span class="event-detail-val"><span data-invitation="date"></span></span>
           </div>
         </div>
 
@@ -236,7 +236,7 @@
           <i class="bi bi-clock event-icon"></i>
           <div class="event-detail-text">
             Waktu
-            <span class="event-detail-val">09.00 WIB — Selesai</span>
+            <span class="event-detail-val"><span data-invitation="time"></span></span>
           </div>
         </div>
 
@@ -244,13 +244,14 @@
           <i class="bi bi-geo-alt event-icon"></i>
           <div class="event-detail-text">
             Lokasi
-            <span class="event-detail-val">Gereja Katolik Paroki St. Antonius Padua<br>Jl. Kartini, Balemulyo, Muntilan, Kec. Muntilan, Kabupaten Magelang, Jawa Tengah</span>
+            <span class="event-detail-val"><span data-invitation="event.venue"></span><br><span data-invitation="event.address"></span></span>
           </div>
         </div>
 
         <div style="margin-top:24px;">
           <!-- https://www.google.com/maps/place/Gereja+Katolik+Paroki+St.+Antonius+Padua,+Muntilan -->
-          <a href="https://maps.google.com/?q=Gereja+Katolik+Paroki+St.+Antonius+Padua,+Muntilan"
+           <!-- /maps/place/Gereja+Katolik+Paroki+Santo+Petrus+Tarsisius,+Warak -->
+          <a data-invitation-href="mapsUrl"
              target="_blank"
              style="display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);color:var(--gold);font-size:10px;letter-spacing:3px;text-transform:uppercase;padding:10px 24px;text-decoration:none;transition:all 0.3s;"
              onmouseover="this.style.background='var(--gold)';this.style.color='#fff'"
@@ -275,53 +276,60 @@
       <div class="gallery-grid reveal">
         <!-- Row 1 -->
         <div class="gallery-item r2" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=900&q=80" alt="g1">
+          <img data-photo="gallery.0" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=900&q=80" alt="g1">
         </div>
         <div class="gallery-item sq" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=700&q=80" alt="g2">
+          <img data-photo="gallery.1" src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=700&q=80" alt="g2">
         </div>
         <div class="gallery-item wide" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1000&q=80" alt="g3">
+          <img data-photo="gallery.2" src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1000&q=80" alt="g3">
         </div>
         <!-- Row 2 cont -->
         <div class="gallery-item sq" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=700&q=80" alt="g4">
+          <img data-photo="gallery.3" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=700&q=80" alt="g4">
         </div>
         <div class="gallery-item sq" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=700&q=80" alt="g5">
+          <img data-photo="gallery.4" src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=700&q=80" alt="g5">
         </div>
         <!-- Row 3 -->
         <div class="gallery-item wide" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1000&q=80" alt="g6">
+          <img data-photo="gallery.5" src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1000&q=80" alt="g6">
         </div>
         <div class="gallery-item r2" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80" alt="g7">
+          <img data-photo="gallery.6" src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80" alt="g7">
         </div>
         <div class="gallery-item sq" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=700&q=80" alt="g8">
+          <img data-photo="gallery.7" src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=700&q=80" alt="g8">
         </div>
         <div class="gallery-item sq" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=700&q=80" alt="g9">
+          <img data-photo="gallery.8" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=700&q=80" alt="g9">
         </div>
         <!-- Row 4 -->
         <div class="gallery-item sq" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="g10">
+          <img data-photo="gallery.9" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="g10">
         </div>
         <div class="gallery-item wide" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?auto=format&fit=crop&w=1000&q=80" alt="g11">
+          <img data-photo="gallery.10" src="https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?auto=format&fit=crop&w=1000&q=80" alt="g11">
         </div>
         <div class="gallery-item sq" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1520853504280-249b72dc947c?auto=format&fit=crop&w=700&q=80" alt="g12">
+          <img data-photo="gallery.11" src="https://images.unsplash.com/photo-1520853504280-249b72dc947c?auto=format&fit=crop&w=700&q=80" alt="g12">
         </div>
         <!-- Row 5 -->
         <div class="gallery-item sq" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1505944357431-27579db47558?auto=format&fit=crop&w=700&q=80" alt="g13">
+          <img data-photo="gallery.12" src="https://images.unsplash.com/photo-1741187273683-69e10958f830?auto=format&fit=crop&w=700&q=80"
+               alt="Cincin pernikahan dan buket bunga" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80'">
         </div>
         <div class="gallery-item sq" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1525258946800-98cfd641d0de?auto=format&fit=crop&w=700&q=80" alt="g14">
+          <img data-photo="gallery.13" src="https://images.unsplash.com/photo-1718358471184-b9e061320a64?auto=format&fit=crop&w=700&q=80"
+               alt="Cincin pernikahan di atas buket" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=700&q=80'">
         </div>
         <div class="gallery-item wide" onclick="openLightbox(this)">
-          <img src="https://images.unsplash.com/photo-1525772764200-be829a350797?auto=format&fit=crop&w=1000&q=80" alt="g15">
+          <img data-photo="gallery.14" src="https://images.unsplash.com/photo-1648154199968-cf6f098894bb?auto=format&fit=crop&w=1000&q=80"
+               alt="Buket bunga dengan cincin pernikahan" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1000&q=80'">
+        </div>
+        <div class="gallery-item wide" onclick="openLightbox(this)">
+          <img data-photo="gallery.15" src="https://images.unsplash.com/photo-1666811089953-f948eb26502e?auto=format&fit=crop&w=1000&q=80"
+               alt="Pasangan pengantin memotong kue pernikahan" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1000&q=80'">
         </div>
       </div>
     </div>
@@ -464,13 +472,13 @@
   <!-- ── SECTION 6: Thank You ── -->
   <section id="sec6">
     <div class="thankyou-slides" id="tySlides">
-      <div class="thankyou-slide active"
+      <div class="thankyou-slide active" data-photo-background="thankyou.0"
            style="background-image:url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1600&q=80')"></div>
-      <div class="thankyou-slide"
+      <div class="thankyou-slide" data-photo-background="thankyou.1"
            style="background-image:url('https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=1600&q=80')"></div>
-      <div class="thankyou-slide"
+      <div class="thankyou-slide" data-photo-background="thankyou.2"
            style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80')"></div>
-      <div class="thankyou-slide"
+      <div class="thankyou-slide" data-photo-background="thankyou.3"
            style="background-image:url('https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=1600&q=80')"></div>
     </div>
     <div class="thankyou-content">
@@ -481,7 +489,7 @@
       <p>Kami sangat berbahagia atas kehadiran & doa restu Anda</p>
       <div style="margin-top:24px;">
         <p style="font-family:'Great Vibes',cursive;font-size: 45px;color:var(--gold-light);line-height: 1.15;">
-          Timotius <span class="amp">&amp;</span> Veronica
+          <span data-invitation="groom.name"></span> <span class="amp">&amp;</span> <span data-invitation="bride.name"></span>
         </p>
       </div>
     </div>
@@ -490,7 +498,7 @@
   <!-- ── SECTION 7: Footer ── -->
   <footer id="footer">
     <p>
-      &copy; 2027 &nbsp;<span>Timotius &amp; Veronica</span>&nbsp; · Sabtu, 14 Juni 2027 · Muntilan
+      &copy; <span data-invitation="year"></span> &nbsp;<span><span data-invitation="coupleNames"></span></span>&nbsp; · <span data-invitation="date"></span> · <span data-invitation="event.venue"></span>
     </p>
     <p style="margin-top:8px;font-size:9px;opacity:0.5;letter-spacing:1px;">
       Made with <span style="color:#e05;">♥</span> — All rights reserved
@@ -510,19 +518,19 @@
     </p>
 
     <div class="rek-card">
-      <p class="rek-bank">BCA</p>
-      <p class="rek-num">1234 5678 90</p>
-      <p class="rek-name">Timotius Ferdinand Wijayanta</p>
-      <button class="btn-copy" onclick="copyRek('1234567890', this)">
+      <p class="rek-bank" data-invitation="gifts.0.bank"></p>
+      <p class="rek-num" data-invitation="gifts.0.number"></p>
+      <p class="rek-name" data-invitation="gifts.0.holder"></p>
+      <button class="btn-copy" onclick="copyRek(this.dataset.number, this)" data-invitation-copy="gifts.0.number">
         <i class="bi bi-clipboard"></i> Salin Nomor
       </button>
     </div>
 
     <div class="rek-card">
-      <p class="rek-bank">Mandiri</p>
-      <p class="rek-num">0987 6543 2100</p>
-      <p class="rek-name">Veronica Mentari Wijayanta</p>
-      <button class="btn-copy" onclick="copyRek('0987654321', this)">
+      <p class="rek-bank" data-invitation="gifts.1.bank"></p>
+      <p class="rek-num" data-invitation="gifts.1.number"></p>
+      <p class="rek-name" data-invitation="gifts.1.holder"></p>
+      <button class="btn-copy" onclick="copyRek(this.dataset.number, this)" data-invitation-copy="gifts.1.number">
         <i class="bi bi-clipboard"></i> Salin Nomor
       </button>
     </div>
@@ -531,15 +539,15 @@
       <p class="contact-label">Contact Person</p>
       <div class="contact-item">
         <i class="bi bi-telephone" style="color:var(--gold);font-size:14px;"></i>
-        <span>Timotius — 081246843543</span>
+        <span data-invitation="groomContact"></span>
       </div>
       <div class="contact-item">
         <i class="bi bi-telephone" style="color:var(--gold);font-size:14px;"></i>
-        <span>Mentari  — 081246843543</span>
+        <span data-invitation="otherContact"></span>
       </div>
       <div class="contact-item">
         <i class="bi bi-whatsapp" style="color:var(--gold);font-size:14px;"></i>
-        <a href="https://wa.me/6281246843543"
+        <a data-invitation-href="whatsappUrl"
            target="_blank"
            style="color:rgba(255,255,255,0.6);text-decoration:none;">
           Chat via WhatsApp
@@ -555,8 +563,155 @@
   <img id="lbImg" src="" alt="">
 </div>
 
+<!-- Simpan musik undangan di assets/music.mp3 atau ganti src berikut. -->
+<audio id="backgroundMusic" data-invitation-src="music" preload="none" loop></audio>
+<div class="music-control">
+  <p id="musicStatus" class="music-status" role="status" hidden></p>
+  <button id="musicToggle" class="music-toggle" type="button"
+          aria-label="Putar musik" title="Putar musik" aria-controls="backgroundMusic">
+    <i class="bi bi-play-fill" aria-hidden="true"></i>
+  </button>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="invitation-config.js"></script>
 <script>
+// Pengaturan konten terpusat, diterapkan sebelum interaksi halaman.
+const invitation = window.INVITATION_CONFIG;
+const weddingStart = new Date(invitation?.event?.start);
+(function applyInvitationConfig() {
+  if (!invitation || !Number.isFinite(weddingStart.getTime())) {
+    console.error('Konfigurasi undangan atau tanggal acara tidak valid.');
+    return;
+  }
+  const event = invitation.event;
+  const format = options => new Intl.DateTimeFormat('id-ID', { timeZone: event.timeZone, ...options }).format(weddingStart);
+  const coupleNames = invitation.groom.name + ' & ' + invitation.bride.name;
+  const values = {
+    ...invitation,
+    groom: { ...invitation.groom, instagramLabel: '@' + invitation.groom.instagram },
+    bride: { ...invitation.bride, instagramLabel: '@' + invitation.bride.instagram },
+    coupleNames,
+    pageTitle: 'Undangan Pernikahan — ' + coupleNames,
+    date: format({ weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }),
+    year: format({ year: 'numeric' }),
+    time: format({ hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }) + ' ' + event.timeZoneLabel + ' — ' + event.endLabel,
+    mapsUrl: event.mapsUrl || 'https://maps.google.com/?q=' + encodeURIComponent(event.venue + ', ' + event.address),
+    whatsappUrl: 'https://wa.me/' + invitation.contacts.whatsapp,
+    groomContact: invitation.groom.name + ' — ' + invitation.contacts.groomPhone,
+    otherContact: invitation.contacts.otherName + ' — ' + invitation.contacts.otherPhone,
+  };
+  function valueAt(path) {
+    return path.split('.').reduce((value, key) => value?.[key], values);
+  }
+  document.querySelectorAll('[data-invitation]').forEach(el => {
+    const value = valueAt(el.dataset.invitation);
+    if (value !== undefined) el.textContent = value;
+  });
+  for (const attribute of ['alt', 'href', 'src', 'copy']) {
+    document.querySelectorAll('[data-invitation-' + attribute + ']').forEach(el => {
+      const value = valueAt(el.getAttribute('data-invitation-' + attribute));
+      if (value === undefined) return;
+      if (attribute === 'href' || attribute === 'src') {
+        const url = new URL(value, document.baseURI);
+        if (!['http:', 'https:'].includes(url.protocol)) return;
+      }
+      el.setAttribute(attribute === 'copy' ? 'data-number' : attribute, value);
+    });
+  }
+})();
+
+// Path foto kosong mempertahankan foto publik yang ada di HTML.
+(function applyInvitationPhotos() {
+  const photos = window.INVITATION_CONFIG?.photos;
+  if (!photos) return;
+
+  function photoUrl(path) {
+    const value = path.split('.').reduce((entry, key) => entry?.[key], photos);
+    if (typeof value !== 'string' || !value.trim()) return null;
+    try {
+      const url = new URL(value.trim(), document.baseURI);
+      return ['http:', 'https:'].includes(url.protocol) ? url.href : null;
+    } catch {
+      return null;
+    }
+  }
+
+  document.querySelectorAll('[data-photo]').forEach(img => {
+    const url = photoUrl(img.dataset.photo);
+    if (!url) return;
+    const fallback = img.src;
+    img.onerror = () => {
+      img.onerror = null; // Satu percobaan fallback, tanpa loop jika jaringan gagal.
+      img.src = fallback;
+    };
+    img.src = url;
+  });
+
+  document.querySelectorAll('[data-photo-background]').forEach(slide => {
+    const url = photoUrl(slide.dataset.photoBackground);
+    if (!url) return;
+    const photo = new Image();
+    photo.onload = () => {
+      slide.style.backgroundImage = 'url(' + JSON.stringify(url) + ')';
+    };
+    // Jika file gagal dimuat, latar publik yang ada tetap digunakan.
+    photo.src = url;
+  });
+})();
+
+// Kontrol musik tetap tersedia saat halaman digulir.
+const backgroundMusic = document.getElementById('backgroundMusic');
+const musicToggle = document.getElementById('musicToggle');
+const musicIcon = musicToggle.querySelector('i');
+const musicStatus = document.getElementById('musicStatus');
+let musicLoading = false;
+
+function updateMusicControl() {
+  const playing = !backgroundMusic.paused;
+  const label = playing ? 'Jeda musik' : 'Putar musik';
+  musicIcon.className = playing ? 'bi bi-pause-fill' : 'bi bi-play-fill';
+  musicToggle.setAttribute('aria-label', label);
+  musicToggle.title = label;
+  musicToggle.classList.toggle('is-playing', playing);
+}
+
+async function playMusic() {
+  if (musicLoading || !backgroundMusic.paused) return;
+  musicStatus.hidden = true;
+  musicLoading = true;
+  musicToggle.setAttribute('aria-busy', 'true');
+  try {
+    if (backgroundMusic.error) backgroundMusic.load();
+    await backgroundMusic.play();
+  } catch (err) {
+    musicStatus.textContent = 'Musik belum dapat diputar. Silakan coba lagi nanti.';
+    musicStatus.hidden = false;
+  } finally {
+    musicLoading = false;
+    musicToggle.removeAttribute('aria-busy');
+    updateMusicControl();
+  }
+}
+
+musicToggle.addEventListener('click', () => {
+  musicStatus.hidden = true;
+  if (!backgroundMusic.paused) {
+    backgroundMusic.pause();
+  } else {
+    playMusic();
+  }
+});
+
+backgroundMusic.addEventListener('play', updateMusicControl);
+backgroundMusic.addEventListener('pause', updateMusicControl);
+backgroundMusic.addEventListener('error', () => {
+  backgroundMusic.pause();
+  updateMusicControl();
+  musicStatus.textContent = 'Musik belum dapat diputar. Silakan coba lagi nanti.';
+  musicStatus.hidden = false;
+});
+
 const DEFAULT_GUEST_NAME = 'Bapak/Ibu/Saudara/i';
 
 function setGuestName(name) {
@@ -628,6 +783,7 @@ function blockScroll(e) {
 // Smooth scroll to invitation + unlock
 function scrollToInvitation(e) {
   e.preventDefault();
+  playMusic();
   const cover = document.getElementById('cover');
   scrollUnlocked = true;
   isOpening = true;
@@ -655,7 +811,8 @@ function scrollToInvitation(e) {
 
 // Countdown
 (function startCountdown() {
-  const target = new Date('2027-06-14T09:00:00+07:00');
+  const target = weddingStart;
+  if (!Number.isFinite(target.getTime())) return;
 
   function tick() {
     const now = new Date();
@@ -721,10 +878,7 @@ function scrollToInvitation(e) {
 
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
+      e.target.classList.toggle('visible', e.isIntersecting);
     });
   }, { threshold: 0.12 });
 
