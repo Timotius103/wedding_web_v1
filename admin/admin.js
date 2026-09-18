@@ -10,6 +10,7 @@ import {
   orderBy,
   query,
   updateDoc,
+  deleteDoc,
   doc,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -97,6 +98,7 @@ async function loadComments() {
     renderComments(filteredComments);
 
     setStatus(dashboardStatus, "");
+    return true;
   } catch (error) {
     console.error("Failed to load comments:", error);
     console.error("Firebase error code:", error?.code);
@@ -168,10 +170,10 @@ function renderComments(comments) {
 
     card.append(heading, message, meta);
 
-    if (comment.status === "pending") {
-      const actions = document.createElement("div");
-      actions.className = "actions";
+    const actions = document.createElement("div");
+    actions.className = "actions";
 
+    if (comment.status === "pending") {
       const approveButton = document.createElement("button");
 
       approveButton.type = "button";
@@ -193,11 +195,52 @@ function renderComments(comments) {
 
       actions.append(approveButton, rejectButton);
 
-      card.append(actions);
     }
 
+    const deleteButton = document.createElement("button");
+    deleteButton.type = "button";
+    deleteButton.className = "danger";
+    deleteButton.textContent = "Hapus";
+    deleteButton.addEventListener("click", () => {
+      deleteComment(comment.id, deleteButton);
+    });
+
+    actions.append(deleteButton);
+    card.append(actions);
     commentsList.append(card);
   });
+}
+
+async function deleteComment(commentId, button) {
+  const db = getCommentsDb();
+
+  if (!db) {
+    setStatus(dashboardStatus, "Firebase database tidak tersedia.", "error");
+    return;
+  }
+
+  if (!window.confirm("Hapus komentar ini secara permanen? Komentar yang dihapus tidak dapat dikembalikan.")) {
+    return;
+  }
+
+  const buttons = button.parentElement.querySelectorAll("button");
+  buttons.forEach((item) => { item.disabled = true; });
+  setStatus(dashboardStatus, "Menghapus komentar...", "info");
+
+  try {
+    await deleteDoc(doc(db, COMMENT_COLLECTION, commentId));
+  } catch (error) {
+    console.error("Failed to delete comment:", error);
+    buttons.forEach((item) => { item.disabled = false; });
+    setStatus(dashboardStatus, "Komentar belum dapat dihapus. Silakan coba lagi.", "error");
+    return;
+  }
+
+  // Remove the deleted card even if refreshing the list fails.
+  button.closest(".comment-card").remove();
+  if (await loadComments()) {
+    setStatus(dashboardStatus, "Komentar berhasil dihapus.", "success");
+  }
 }
 
 async function moderate(commentId, status, button) {

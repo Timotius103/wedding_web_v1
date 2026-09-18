@@ -16,8 +16,8 @@ window.INVITATION_CONFIG = {
     timeZone: "Asia/Jakarta", // WIB: Asia/Jakarta; WITA: Asia/Makassar; WIT: Asia/Jayapura.
     timeZoneLabel: "WIB",
     endLabel: "Selesai",
-    venue: "Gereja Katolik Paroki Santo Petrus Tarsisius, Warak",
-    address: "Jl. Purbaya No.100, Warak Kidul, Sumberadi, Kec. Mlati, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55288",
+    venue: "Gereja Katolik Paroki Santo Ignatius, Cimahi",
+    address: "Jl. Baros No.8, Baros, Kec. Cimahi Tengah, Kota Cimahi, Jawa Barat 40521, Indonesia",
     mapsUrl: "", // Kosong: peta otomatis mencari nama lokasi dan alamat di atas.
   },
   gifts: [

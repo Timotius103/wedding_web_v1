@@ -273,7 +273,7 @@
         <h2 class="section-heading">Wedding Gallery</h2>
       </div>
 
-      <div class="gallery-grid reveal">
+      <div class="gallery-grid">
         <!-- Row 1 -->
         <div class="gallery-item r2" onclick="openLightbox(this)">
           <img data-photo="gallery.0" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=900&q=80" alt="g1">
@@ -315,6 +315,16 @@
           <img data-photo="gallery.11" src="./assets/bribri.jpeg" alt="g12">
           <!-- <img data-photo="gallery.11" src="https://images.unsplash.com/photo-1520853504280-249b72dc947c?auto=format&fit=crop&w=700&q=80" alt="g12"> -->
         </div>
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img data-photo="gallery.8" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=700&q=80" alt="g9">
+        </div>
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img data-photo="gallery.8" src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=700&q=80" alt="g9">
+        </div>
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img data-photo="gallery.12" src="https://images.unsplash.com/photo-1741187273683-69e10958f830?auto=format&fit=crop&w=700&q=80"
+               alt="Cincin pernikahan dan buket bunga" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80'">
+        </div>
         <!-- Row 5 -->
         <div class="gallery-item sq" onclick="openLightbox(this)">
           <img data-photo="gallery.12" src="https://images.unsplash.com/photo-1741187273683-69e10958f830?auto=format&fit=crop&w=700&q=80"
@@ -331,6 +341,14 @@
         <div class="gallery-item wide" onclick="openLightbox(this)">
           <img data-photo="gallery.15" src="https://images.unsplash.com/photo-1666811089953-f948eb26502e?auto=format&fit=crop&w=1000&q=80"
                alt="Pasangan pengantin memotong kue pernikahan" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1000&q=80'">
+        </div>
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img data-photo="gallery.16" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80"
+               alt="Suasana pernikahan" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=700&q=80'">
+        </div>
+        <div class="gallery-item sq" onclick="openLightbox(this)">
+          <img data-photo="gallery.16" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80"
+               alt="Suasana pernikahan" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=700&q=80'">
         </div>
       </div>
     </div>
@@ -884,6 +902,33 @@ function scrollToInvitation(e) {
   }, { threshold: 0.12 });
 
   els.forEach(el => obs.observe(el));
+})();
+
+// Replay gallery reveals in the scroll direction after photos leave the viewport.
+(function() {
+  if (!('IntersectionObserver' in window)) return;
+
+  let lastScrollY = window.scrollY;
+
+  const galleryObserver = new IntersectionObserver((entries) => {
+    const scrollingUp = window.scrollY < lastScrollY;
+    lastScrollY = window.scrollY;
+
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        entry.target.classList.remove('gallery-entered');
+        return;
+      }
+      if (entry.target.classList.contains('gallery-entered')) return;
+
+      entry.target.style.setProperty('--gallery-enter-y', scrollingUp ? '-24px' : '24px');
+      entry.target.classList.add('gallery-entered');
+    });
+  }, { threshold: 0 });
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    galleryObserver.observe(item);
+  });
 })();
 
 // Gift modal
